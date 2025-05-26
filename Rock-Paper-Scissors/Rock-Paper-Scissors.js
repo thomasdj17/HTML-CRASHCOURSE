@@ -2,31 +2,34 @@ const rock = document.getElementById("Rock");
 const paper = document.getElementById("Paper");
 const scissors = document.getElementById("Scissors");
 
-function push() {
-    if (rock && scissors) {
-        var result = "Rock is the winner!!!";
-    }   
-    if (rock && paper) {
-        var result = "Paper is the winner!!!";
-    }   
-    if (paper && scissors) {
-        var result = "Scissors is the winner!!!";
-    }   
-    if (scissors && scissors || rock && rock || paper && paper) {
-        var result = "It's a tie!!!";
-    }
-    
-    document.getElementById("winner").innerHTML = result;
+var userScore = 0;
+var cpuScore = 0;
+
+function getComputerChoice() {
+    const choices = ["rock", "paper", "scissors"];
+    return choices[Math.floor(Math.random() * choices.length)];
 }
+function push(userChoice) {
+    const computerChoice = getComputerChoice();
 
-const user = 1;
-const cpu = 2;
-const winner = choices;
+    let message = "";
 
-function score() {
-    if (winner === user) {
-        let (document.getElementById("Wins").value = i++ )
+    getComputerChoice();
+    if ((userChoice === rock && computerChoice === "scissors") || (userChoice === paper && computerChoice === "rock") || (userChoice === scissors && computerChoice === "paper")) {
+        userScore++;
+        document.getElementById("Wins").textContent = userScore;
+        message = "The user is the winner";
+    } else if (userChoice === computerChoice) {
+        message = "It's a tie";
     } else {
-        let (document.getElementById("Loses").value = i++)
+        cpuScore++;
+        document.getElementById("Loses").textContent = cpuScore;
+        message = "The cpu is the winner";
     }
+
+    document.getElementById("winner").innerHTML = message;
 }
+
+rock.addEventListener("click", () => push(rock));
+paper.addEventListener("click", () => push(paper));
+scissors.addEventListener("click", () => push(scissors));
