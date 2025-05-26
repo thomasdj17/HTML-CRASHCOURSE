@@ -21,3 +21,7 @@
     align-items: center;
     gap: 20px;
 }
+
+#winner {
+    font-size: 25px;
+}
