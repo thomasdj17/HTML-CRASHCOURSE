@@ -8,9 +8,16 @@ function quest() {
     document.getElementById("tasks").innerHTML = "";
 }
 
-function time() {
-    for (let i = .00; i < 5.00; i++);
-    return value[i];
+let timeLeft = 5;
+const timerDisplay = document.getElementById("timer");
+
+function countdown() {
+    if (timeLeft >= 0) {
+        timerDisplay.textContent = `${timeLeft}`;
+        timeLeft--;
+    } else {
+        clearInterval(timerInterval);
+    }
 }
 
-document.getElementById("timer").value = value[i];
+const timerInterval = setInterval(countdown, 1000);
