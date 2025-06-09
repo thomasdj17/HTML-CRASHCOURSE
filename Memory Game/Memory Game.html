@@ -9,15 +9,15 @@
 <body>
     <div class="head">
         <h1>Flash</h1>
-        <p>Remember the items on the card. The card will be shown for a few seconds. After the time is up the card will disappear and you will need to update the text with information found on the card. Good luck!!! Keep track of how good your memory is.</p>
+        <p id="para">Press the begin button for a sentence to be shown. Once 5 seconds are up you have to re-write the sentence. Good luck!!! Keep track of how good your memory is.</p>
     </div>
     <br>
     <div class="body">
         <p id="questions"><span id="tasks">Press this button to begin</span></p>
-        <button type="button" onclick="quest()">Begin</button>
+        <button type="button" id="startButton" onclick="startButton()">Begin</button>
         <br>
         <br>
-        <p>Time left: <span id="timer"></span></p>
+        <p>Time left: <span id="timer">5</span></p>
     </div> 
     <br>
     <br>
