@@ -9,17 +9,22 @@ function startButton() {
 }
 
 let timeLeft = 5;
-const timerDisplay = document.getElementById("timer");
+let timerDisplay = document.getElementById("timer");
 let timerInterval;
 
-function countdown() {
+
+
+function countdow() {
     if (timeLeft >= 0) {
         timerDisplay.textContent = `${timeLeft}`;
         timeLeft--;
     } else {
         clearInterval(timerInterval);
+        timeLeft = 5;
+        document.getElementById("startButton").innerHTML = anytime;
     }
 }
+
 
 document.getElementById("startButton").addEventListener("click", function() {
     clearInterval(timerInterval);
@@ -27,8 +32,6 @@ document.getElementById("startButton").addEventListener("click", function() {
     timerInterval = setInterval(countdown, 1000);
 
     if (timeLeft <= 0) {
-        clearInterval(timerInterval);
-        timeLeft = 5;
-        countdown();
+        ;
     }
 });
