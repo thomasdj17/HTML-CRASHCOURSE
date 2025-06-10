@@ -25,8 +25,10 @@ document.getElementById("startButton").addEventListener("click", function() {
     clearInterval(timerInterval);
     timeLeft = 5;
     timerInterval = setInterval(countdown, 1000);
-    if(timerInterval === 0) {
-        document.getElementById("questions").innerHTML = "";
-        
+
+    if (timeLeft <= 0) {
+        clearInterval(timerInterval);
+        timeLeft = 5;
+        countdown();
     }
 });
